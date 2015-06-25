@@ -1,0 +1,125 @@
+// variables
+$base: 16px;
+$unit: $base*1.4;
+
+$white: #FCFCFC;
+$red: #E65C59;
+$yellow: #FFFB00;
+$black: #373737;
+
+// fonts
+@font-face { font-family: 'Brown'; font-weight: 400; font-style: normal; src: url('fonts/Brown-Regular.otf') format('truetype'); }
+@font-face { font-family: 'Brown'; font-weight: 400; font-style: italic; src: url('fonts/Brown-Regular-Italic.otf') format('truetype'); }
+@font-face { font-family: 'Brown'; font-weight: 700; font-style: normal; src: url('fonts/Brown-Bold.otf') format('truetype'); }
+
+// common
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0; }
+body { @extend %regular, %default; font-family: 'Brown', 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: $unit; color: $black; }
+
+%regular { font-weight: 400; }
+%bold { font-weight: 700; }
+%italic { font-style: italic; }
+// %smaller { font-size: $base*.675; }
+%small { font-size: $base*.825; }
+%default { font-size: $base; }
+%large { font-size: $base*1.125; }
+%larger { font-size: $base*1.5; }
+%xlarge { font-size: $base*2.25; }
+%lowercase { text-transform: lowercase; }
+%uppercase { text-transform: uppercase; }
+%txt-center { text-align: center; }
+%txt-right { text-align: right; }
+
+%antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+%clearfix:after { content: ''; display: block; clear: both; }
+%format {
+  h1 { @extend %large, %bold; }
+  a { color: $white; }
+  p:not(:last-child) { margin-bottom: $unit/2; }
+}
+
+%wrap { max-width: 1000px; padding: 0 $unit; margin: auto; }
+
+
+
+// nav
+.nav { @extend %antialiased; background: $red; }
+.nav-wrap { @extend %clearfix, %wrap; }
+.nav-title { float: left; line-height: $unit*2; }
+.nav-links { float: right; font-size: 0; }
+.nav-link {
+  @extend %default, %bold;
+  display: inline-block;
+  height: $unit*2; margin-left: $unit; line-height: $unit*2;
+  text-decoration: none; color: $white;
+}
+
+// hero
+.hero {
+  @extend %txt-center;
+  position: relative; display: table-cell; vertical-align: middle;
+  width: 100vw; height: calc(100vh - #{$unit*2});
+}
+.hero-title { @extend %xlarge, %regular; display: inline-block; line-height: $unit*2; strong { color: $red; }}
+.hero-link {
+  @extend %small, %uppercase;
+  position: absolute; bottom: $unit*3; left: 0; right: 0;
+  text-decoration: none; color: $black;
+  &:after {
+    @extend %larger;
+    content: '›'; position: absolute; top: 100%; left: 50%;
+    width: $unit; height: $unit; margin-left: -$unit/2;
+    color: $red;
+    -webkit-transform: rotate(90deg); transform: rotate(90deg);
+  }
+}
+
+// project
+.project { position: relative; min-width: 1000px; }
+.project-preview { position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: $yellow; }
+.project-preview-img { float: right; display: block; width: auto; height: 100%; }
+.project-wrap {
+  @extend %antialiased;
+  position: relative; width: 50%; margin-left: 50%; background: $red;
+  &:after { content: ''; position: absolute; top: 50%; right: 100%; margin-top: -$unit/6; border: $unit/3 solid transparent; border-right-color: $red; }
+}
+.project-content { max-width: $unit*30; padding: $unit*4; color: $white; }
+.project-title { @extend %small, %uppercase, %regular; margin-bottom: $unit*2; }
+.project-subtitle { @extend %larger, %bold; margin-bottom: $unit/2; }
+.project-text { @extend %format; margin-bottom: $unit*1.5; }
+.project-link {
+  @extend %bold, %small, %uppercase;
+  display: inline-block; padding: 0 $unit/2;
+  border-radius: 2px; background: $white;
+  line-height: $unit*1.5; text-decoration: none; color: $red;
+}
+
+// team
+.team {}
+.team-wrap { @extend %wrap, %txt-center; padding-top: $unit*4; font-size: 0; }
+.team-title { @extend %small, %uppercase, %regular; margin-bottom: $unit*2; color: $red; }
+.team-member { @extend %default; display: inline-block; width: $unit*8; margin-bottom: $unit; vertical-align: top; }
+.team-image { display: block; margin: 0 auto $unit; }
+.team-name { @extend %regular, %default; }
+.team-job { @extend %bold, %default; color: $red; }
+.team-about { @extend %format; }
+.social { @extend %txt-center; padding: $unit*2 0; font-size: 0; }
+.social-link {
+  @extend %small, %uppercase;
+  display: inline-block;
+  width: $unit*4; margin: 0 $unit/4;
+  border-radius: 2px; background: $red;
+  line-height: $unit*1.5; text-decoration: none; color: $white;
+}
+
+// contact
+.contact { @extend %antialiased; padding: $unit*4 0; background: $red; color: $white; }
+.contact-wrap { @extend %wrap, %clearfix; }
+.contact-title { @extend %small, %uppercase, %regular; margin-bottom: $unit*2; }
+.contact-map { width: 66.6%; float: left; padding-right: $unit*2; }
+.contact-map-link { border: 0; }
+.contact-map-img { display: block; width: 100%; height: auto; }
+.contact-info { @extend %format; width: 33.3%; float: left; }
+
+.footer { @extend %txt-center, %antialiased; padding: $unit; background: $black; }
+.footer-text { @extend %regular; color: $white; small { @extend %small; } }
