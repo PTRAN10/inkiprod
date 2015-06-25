@@ -110,7 +110,7 @@ body {
 .team-wrap { @extend %wrap, %txt-center; padding-top: $unit*4; font-size: 0; }
 .team-title { @extend %small, %uppercase, %regular; margin-bottom: $unit*2; color: $red; }
 .team-member { @extend %default; display: inline-block; width: $unit*8; margin-bottom: $unit; vertical-align: top; }
-.team-image { display: block; margin: 0 auto $unit; }
+.team-image { display: block; width: 150px; height: 150px; margin: 0 auto $unit; border-radius: 100%; overflow: hidden; }
 .team-name { @extend %regular, %default; }
 .team-job { @extend %bold, %default; color: $red; }
 .team-about { @extend %format; }
