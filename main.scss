@@ -14,7 +14,12 @@ $black: #373737;
 
 // common
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0; }
-body { @extend %regular, %default; font-family: 'Brown', 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: $unit; color: $black; }
+body {
+  @extend %regular, %default;
+  background: url('bg.png') repeat;
+  font-family: 'Brown', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: $unit; color: $black;
+}
 
 %regular { font-weight: 400; }
 %bold { font-weight: 700; }
@@ -45,7 +50,13 @@ body { @extend %regular, %default; font-family: 'Brown', 'Helvetica Neue', Helve
 // nav
 .nav { @extend %antialiased; background: $red; }
 .nav-wrap { @extend %clearfix, %wrap; }
-.nav-title { float: left; line-height: $unit*2; }
+.nav-title {
+  float: left;
+  width: $unit*6; height: $unit*1.5; margin-top: $unit/4;
+  background: url('logo.png') no-repeat;
+  background-size: cover;
+  font-size: 0; color: transparent;
+}
 .nav-links { float: right; font-size: 0; }
 .nav-link {
   @extend %default, %bold;
